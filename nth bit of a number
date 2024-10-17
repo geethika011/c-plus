@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+
+int setNthBit(int num, int N) {
+    // Check if N is a valid bit position
+    if (N < 0 || N >= (sizeof(int) * 8)) {
+        cout << "Invalid bit position!" << endl;
+        return num; // Return the original number without modification
+    }
+    
+    // Set the Nth bit using bitwise OR
+    num = num | (1 << N);
+
+    return num;
+}
+
+int main() {
+    int number, N;
+
+    // Input the number
+    cout << "Enter Number: ";
+    cin >> number;
+
+    // Input the bit position to set
+    cout << "Enter bit number you wish to set: ";
+    cin >> N;
+
+    // Set the Nth bit and check for success
+    int newNumber = setNthBit(number, N);
+    
+    if (newNumber != number) {
+        cout << "Bit set Successfully" << endl;
+        cout << "Answer: " << newNumber << endl;
+    } else {
+        cout << "Failed to set the bit" << endl;
+    }
+
+    return 0;
+}

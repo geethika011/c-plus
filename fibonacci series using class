@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+
+// Class to generate Fibonacci series
+class Series {
+private:
+    int limit;  // Limit for Fibonacci series
+
+public:
+    // Function to input the limit
+    void input() {
+        cout << "Enter the limit: ";
+        cin >> limit;
+    }
+
+    // Function to display the Fibonacci series
+    void show() {
+        int first = 0, second = 1, next;
+        cout << first << " " << second << " "; // Print first two numbers
+        for (int i = 3; i <= limit; i++) {
+            next = first + second;
+            cout << next << " ";
+            first = second;
+            second = next;
+        }
+        cout << endl;
+    }
+};
+
+int main() {
+    Series series;
+    series.input();  // Call the input function to get the limit
+    series.show();   // Call the show function to display the Fibonacci series
+    return 0;
+}

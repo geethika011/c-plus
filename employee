@@ -1,0 +1,71 @@
+#include <iostream>
+#include <string>
+using namespace std;
+class Employee {
+public:
+    string Emp_name, Address, Mail_id;
+    int Emp_id;
+    long long Mobile_no;
+    void getEmployeeDetails() {
+        cout << "Enter Name of the Employee: ";
+        getline(cin, Emp_name);
+        cout << "Enter Address of the Employee: ";
+        getline(cin, Address);
+        cout << "Enter ID of the Employee: ";
+        cin >> Emp_id;
+        cout << "Enter Mobile Number: ";
+        cin >> Mobile_no;
+        cin.ignore(); 
+        cout << "Enter E-Mail ID of the Employee: ";
+        getline(cin, Mail_id);
+    }
+    void displayEmployeeDetails() {
+        cout << "\n=======================" << endl;
+        cout << "EMPLOYEE DETAILS" << endl;
+        cout << "=======================" << endl;
+        cout << "Name: " << Emp_name << endl;
+        cout << "ID: " << Emp_id << endl;
+        cout << "Address: " << Address << endl;
+        cout << "Mobile No.: " << Mobile_no << endl;
+        cout << "E-Mail ID: " << Mail_id << endl;
+    }
+};
+class Programmer : public Employee {
+public:
+    float BP; 
+    void getBasicPay() {
+        cout << "ENTER THE BASIC PAY OF THE PROGRAMMER => ";
+        cin >> BP;
+    }
+    void generatePaySlip() {
+        float DA = 0.97 * BP;  
+        float HRA = 0.10 * BP; 
+        float PF = 0.12 * BP;  
+        float ClubFund = 0.001 * BP;  
+
+        float GrossPay = BP + DA + HRA; 
+        float NetPay = GrossPay - (PF + ClubFund); 
+
+        displayEmployeeDetails(); 
+
+        cout << "\n=======================" << endl;
+        cout << "PROGRAMMER PAYMENT SLIP" << endl;
+        cout << "=======================" << endl;
+        cout << "BASIC PAY => " << BP << endl;
+        cout << "DEARNESS ALLOWANCE => " << DA << endl;
+        cout << "HOUSE RENT ALLOWANCE => " << HRA << endl;
+        cout << "PROVIDENT FUND => " << PF << endl;
+        cout << "CLUB FUND => " << ClubFund << endl;
+        cout << "GROSS PAY => " << GrossPay << endl;
+        cout << "NET PAY => " << NetPay << endl;
+    }
+};
+
+int main() {
+    Programmer programmer; 
+    programmer.getEmployeeDetails();
+    programmer.getBasicPay();
+    programmer.generatePaySlip();
+
+    return 0;
+}

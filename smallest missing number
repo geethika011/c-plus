@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+
+int findSmallestMissing(int arr[], int size) {
+    int expected = 1; 
+    int index = 0; 
+
+    while (index < size) {
+        if (arr[index] == expected) {
+            expected++;
+        } else if (arr[index] > expected) {
+            return expected;
+        }
+        index++; 
+    }
+    return expected;
+}
+
+int main() {
+    int arr[] = {1, 2, 3, 4, 5, 7, 8};
+    int size = sizeof(arr) / sizeof(arr[0]);
+
+    int missingElement = findSmallestMissing(arr, size);
+
+    cout << "The smallest missing element is: " << missingElement << endl;
+
+    return 0;
+}

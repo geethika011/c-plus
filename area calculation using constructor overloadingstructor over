@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+
+class Shape {
+public:
+    Shape(double radius) {
+        double area = 3.14 * radius * radius;
+        cout << "Area of Circle: " << area << endl;
+    }
+    Shape(double length, double breadth) {
+        double area = length * breadth;
+        cout << "Area of Rectangle: " << area << endl;
+    }
+    Shape(double base, double height, bool isTriangle) {
+        double area = 0.5 * base * height;
+        cout << "Area of Triangle: " << area << endl;
+    }
+};
+
+int main() {
+    Shape circle(3);  
+    Shape rectangle(6, 7);  
+    Shape triangle(2, 3, true); 
+
+    return 0;
+}

@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+
+class DecimalToBinary {
+public:
+    DecimalToBinary(int decimal) {
+        cout << "Binary representation of " << decimal << " is: ";
+        toBinary(decimal);
+        cout << endl;
+    }
+    DecimalToBinary() {
+        int decimal;
+        cout << "Enter a decimal number to convert to binary: ";
+        cin >> decimal;
+        cout << "Binary representation of " << decimal << " is: ";
+        toBinary(decimal);
+        cout << endl;
+    }
+
+private:
+    void toBinary(int decimal) {
+        if (decimal == 0) {
+            cout << 0;
+            return;
+        }
+        if (decimal > 1) {
+            toBinary(decimal / 2); 
+        }
+        cout << (decimal % 2);  
+    }
+};
+
+int main() {
+    DecimalToBinary binary1(10);  
+    DecimalToBinary binary2;  
+
+    return 0;
+}

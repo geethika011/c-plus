@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+
+    // Input the position of the Fibonacci number
+    cout << "Enter the position of the Fibonacci number (n): ";
+    cin >> n;
+
+    int fib;
+
+    // Using if-else ladder to determine the Fibonacci number
+    if (n == 0) {
+        fib = 0; // 0th Fibonacci number
+    } else if (n == 1) {
+        fib = 1; // 1st Fibonacci number
+    } else if (n == 2) {
+        fib = 1; // 2nd Fibonacci number
+    } else {
+        int a = 0; // First Fibonacci number
+        int b = 1; // Second Fibonacci number
+        // Calculate Fibonacci for n >= 3
+        for (int i = 3; i <= n; i++) {
+            fib = a + b; // Fibonacci formula
+            a = b;       // Move to the next Fibonacci number
+            b = fib;     // Update b to the new Fibonacci number
+        }
+    }
+
+    // Output the Nth Fibonacci number
+    cout << "The " << n << "th Fibonacci number is: " << fib << endl;
+
+    return 0;
+}

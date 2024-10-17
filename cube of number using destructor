@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+
+class Cube {
+private:
+    int limit;  
+
+public:
+    Cube(int n) : limit(n) {}
+    void displayCubes() const {
+        cout << "Cubes of numbers from 1 to " << limit << " are:\n";
+        for (int i = 1; i <= limit; i++) {
+            cout << "Cube of " << i << " = " << (i * i * i) << endl;
+        }
+    }
+    ~Cube() {
+        displayCubes();
+    }
+};
+
+int main() {
+    int number;
+    cout << "Enter the integer up to which you want to display cubes: ";
+    cin >> number;
+    Cube cubeObj(number);
+
+    return 0;  
+}

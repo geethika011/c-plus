@@ -1,0 +1,27 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+int main() {
+    char arr[100];
+    int choice;
+    cout << "Enter a string: ";
+    cin.getline(arr, 100);
+    cout << "Choose conversion option:\n";
+    cout << "1. Convert to UPPERCASE\n";
+    cout << "2. Convert to LOWERCASE\n";
+    cin >> choice;
+    if (choice == 1) {
+        cout << "String in UPPERCASE:\n";
+        for (int x = 0; x < strlen(arr); x++) {
+            putchar(toupper(arr[x]));
+        }
+    } else if (choice == 2) {
+        cout << "String in LOWERCASE:\n";
+        for (int x = 0; x < strlen(arr); x++) {
+            putchar(tolower(arr[x]));
+        }
+    } else {
+        cout << "Invalid choice!" << endl;
+    }
+    return 0;
+}

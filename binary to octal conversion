@@ -1,0 +1,45 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+class BinaryToOctal {
+private:
+    int binaryNumber;  
+
+public:
+    BinaryToOctal(int bin) : binaryNumber(bin) {
+        cout << "Binary Number: " << binaryNumber << endl;
+        int octalNumber = convertToOctal();
+        cout << "Octal Equivalent: " << octalNumber << endl;
+    }
+    int convertToOctal() {
+        int decimalNumber = 0;
+        int base = 1;
+        while (binaryNumber > 0) {
+            int lastDigit = binaryNumber % 10;
+            binaryNumber = binaryNumber / 10;
+            decimalNumber += lastDigit * base;
+            base = base * 2;
+        }
+        int octalNumber = 0;
+        base = 1;
+
+        while (decimalNumber > 0) {
+            int lastDigit = decimalNumber % 8;
+            decimalNumber = decimalNumber / 8;
+            octalNumber += lastDigit * base;
+            base = base * 10;
+        }
+
+        return octalNumber; 
+    }
+};
+
+int main() {
+    int binaryInput;
+    cout << "Enter a binary number: ";
+    cin >> binaryInput;
+    BinaryToOctal conversion(binaryInput);
+
+    return 0;  
+}

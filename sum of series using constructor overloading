@@ -1,0 +1,42 @@
+#include <iostream>
+using namespace std;
+
+class SeriesSum {
+private:
+    int start;  
+    int end; 
+
+public:
+    SeriesSum() : start(1), end(10) {
+        cout << "Default constructor called. Summing from " << start << " to " << end << "." << endl;
+        calculateSum();
+    }
+    SeriesSum(int n) : start(1), end(n) {
+        cout << "Constructor with one parameter called. Summing from " << start << " to " << end << "." << endl;
+        calculateSum();
+    }
+    SeriesSum(int s, int e) : start(s), end(e) {
+        cout << "Constructor with two parameters called. Summing from " << start << " to " << end << "." << endl;
+        calculateSum();
+    }
+    void calculateSum() const {
+        int sum = 0;
+        for (int i = start; i <= end; ++i) {
+            sum += i;
+        }
+        cout << "Sum of the series from " << start << " to " << end << " is: " << sum << endl;
+    }
+};
+
+int main() {
+    int endValue;
+    cout << "Enter the ending value of the series (enter 0 for default): ";
+    cin >> endValue;
+    if (endValue == 0) {
+        SeriesSum seriesObj;  
+    } else {
+        SeriesSum seriesObj(endValue); 
+    }
+
+    return 0;  
+}

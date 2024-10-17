@@ -1,0 +1,46 @@
+#include <iostream>
+using namespace std;
+
+class TrianglePattern {
+private:
+    int height;  
+    int number;  
+
+public:
+    TrianglePattern() : height(5), number(1) {
+        cout << "Default constructor called. Printing triangle of height " << height << " with number " << number << "." << endl;
+        printPattern();
+    }
+    TrianglePattern(int h) : height(h), number(1) {
+        cout << "Constructor with one parameter called. Printing triangle of height " << height << " with number " << number << "." << endl;
+        printPattern();
+    }
+    TrianglePattern(int h, int n) : height(h), number(n) {
+        cout << "Constructor with two parameters called. Printing triangle of height " << height << " with number " << number << "." << endl;
+        printPattern();
+    }
+    void printPattern() const {
+        for (int i = 1; i <= height; ++i) {
+            for (int j = 1; j <= i; ++j) {
+                cout << number << " ";
+            }
+            cout << endl;  
+        }
+    }
+};
+
+int main() {
+    int height, number;
+    cout << "Enter the height of the triangle (enter 0 for default): ";
+    cin >> height;
+
+    if (height == 0) {
+        TrianglePattern triangleObj; 
+    } else {
+        cout << "Enter the number to be printed: ";
+        cin >> number;
+        TrianglePattern triangleObj(height, number);  
+    }
+
+    return 0;  
+}

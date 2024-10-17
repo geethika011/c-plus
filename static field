@@ -1,0 +1,57 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Car {
+private:
+    int id;
+    string name;
+    int marks;
+    static int objectCount;
+
+public:
+    Car(int carId, string carName, int carMarks) {
+        id = carId;
+        name = carName;
+        marks = carMarks;
+        objectCount++;  
+    }
+    void displayCarDetails() {
+        cout << "Id of the Car: " << id << endl;
+        cout << "Name of the Car: " << name << endl;
+        cout << "Marks: " << marks << endl;
+    }
+    static int getObjectCount() {
+        return objectCount;
+    }
+};
+int Car::objectCount = 0;
+
+int main() {
+    int carId;
+    string carName;
+    int carMarks;
+    cout << "Enter the Id of the Car: ";
+    cin >> carId;
+    cout << "Enter the name of the Car: ";
+    cin.ignore();  
+    getline(cin, carName);
+    cout << "Number of the Marks (1 - 10): ";
+    cin >> carMarks;
+    Car car1(carId, carName, carMarks);
+    cout << "\nEnter the Id of the Car: ";
+    cin >> carId;
+    cout << "Enter the name of the Car: ";
+    cin.ignore();  
+    getline(cin, carName);
+    cout << "Number of the Marks (1 - 10): ";
+    cin >> carMarks;
+    Car car2(carId, carName, carMarks);
+    cout << "\n";
+    car1.displayCarDetails();
+    cout << "\n";
+    car2.displayCarDetails();
+    cout << "\nNo. of objects created in the class: " << Car::getObjectCount() << endl;
+
+    return 0;
+}

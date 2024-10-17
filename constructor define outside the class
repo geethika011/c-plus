@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+
+class Rectangle {
+private:
+    int length, width;
+
+public:
+    Rectangle(int l, int w);  
+    void displayArea() {
+        cout << "Area of the rectangle: " << length * width << endl;
+    }
+};
+Rectangle::Rectangle(int l, int w) {
+    length = l;
+    width = w;
+}
+
+int main() {
+    int l, w;
+    cout << "Enter the length and width of the rectangle: ";
+    cin >> l >> w;
+    Rectangle rect(l, w);
+    rect.displayArea();
+
+    return 0;
+}

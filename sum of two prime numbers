@@ -1,0 +1,44 @@
+#include <iostream>
+using namespace std;
+
+class PrimeSumChecker {
+private:
+    int number;
+
+public:
+    PrimeSumChecker(int num) : number(num) {
+        cout << "Checking if " << number << " can be expressed as the sum of two prime numbers..." << endl;
+        if (canBeExpressedAsSumOfTwoPrimes()) {
+            cout << number << " can be expressed as the sum of two prime numbers." << endl;
+        } else {
+            cout << number << " cannot be expressed as the sum of two prime numbers." << endl;
+        }
+    }
+    bool isPrime(int n) {
+        if (n <= 1) return false;
+        for (int i = 2; i * i <= n; i++) {
+            if (n % i == 0) return false;
+        }
+        return true;
+    }
+    bool canBeExpressedAsSumOfTwoPrimes() {
+        for (int i = 2; i <= number / 2; i++) {
+            if (isPrime(i) && isPrime(number - i)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    ~PrimeSumChecker() {
+        cout << "Destructor called. Finished checking for number: " << number << endl;
+    }
+};
+
+int main() {
+    int inputNumber;
+    cout << "Enter a number: ";
+    cin >> inputNumber;
+    PrimeSumChecker checker(inputNumber);
+
+    return 0; 
+}
